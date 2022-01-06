@@ -1,0 +1,22 @@
+name: "ZofToken validation"
+description: "Use ZofToken (including free subscriptions) to authorize CI/CD steps, as 2FA for team members or for business users."
+inputs:
+  zoftoken-instance:  # URL of the ZofToken instance to use
+    description: "The instance with the token to check - defaults to ZaaS."
+    required: true
+    default: "https://zaas.zoftoken.com/token"
+  service:  # Token service
+    description: "The service with the token to check."
+    required: true
+  id:  # Token id
+    description: "The id of the token to check."
+    required: true
+  auth-key:  # Service authentication key
+    description: "An authentication key configured in the instance with access to the service/token pair."
+    required: true
+runs:
+  using: "node16"
+  main: "dist/index.js"
+branding:
+  icon: "shield"
+  color: "orange"
